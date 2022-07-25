@@ -387,7 +387,7 @@ class LWLink2:
     async def _connect_to_server(self):
         if (not self._websocket) or self._websocket.closed:
             _LOGGER.debug("connect_to_server: Connecting to websocket")
-            self._websocket = await self._session.ws_connect(TRANS_SERVER, heartbeat=10, ssl=none)
+            self._websocket = await self._session.ws_connect(TRANS_SERVER, heartbeat=10, ssl=False)
         return await self._authenticate_websocket()
 
     async def _authenticate_websocket(self):
