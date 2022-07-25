@@ -9,7 +9,7 @@ import logging
 _LOGGER = logging.getLogger(__name__)
 
 AUTH_SERVER = "https://auth.lightwaverf.com/v2/lightwaverf/autouserlogin/lwapps"
-TRANS_SERVER = "wss://v1-linkplus-app.lightwaverf.com"
+TRANS_SERVER = "192.168.11.50"
 VERSION = "1.6.8"
 MAX_RETRIES = 5
 PUBLIC_AUTH_SERVER = "https://auth.lightwaverf.com/token"
@@ -387,7 +387,7 @@ class LWLink2:
     async def _connect_to_server(self):
         if (not self._websocket) or self._websocket.closed:
             _LOGGER.debug("connect_to_server: Connecting to websocket")
-            self._websocket = await self._session.ws_connect(TRANS_SERVER, heartbeat=10)
+            self._websocket = await self._session.ws_connect(TRANS_SERVER, heartbeat=10, ssl=False)
         return await self._authenticate_websocket()
 
     async def _authenticate_websocket(self):
