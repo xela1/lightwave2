@@ -10,7 +10,7 @@ _LOGGER = logging.getLogger(__name__)
 
 AUTH_SERVER = "https://auth.lightwaverf.com/v2/lightwaverf/autouserlogin/lwapps"
 TRANS_SERVER = "wss://v1-linkplus-app.lightwaverf.com"
-SSL_MODE = "None"
+SSL_MODE = None
 VERSION = "1.6.8"
 MAX_RETRIES = 5
 PUBLIC_AUTH_SERVER = "https://auth.lightwaverf.com/token"
