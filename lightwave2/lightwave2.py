@@ -133,7 +133,7 @@ class LWLink2:
         self._transactions[message._message["transactionId"]] = waitflag
         waitflag.clear()
         try:
-            await asyncio.wait_for(waitflag.wait(), timeout=5.0)
+            await asyncio.wait_for(waitflag.wait(), timeout=15.0)
             _LOGGER.debug("async_sendmessage: Response received: %s", str(self._response))
         except asyncio.TimeoutError:
             _LOGGER.debug("async_sendmessage: Timeout waiting for response to : %s", message._message["transactionId"])
